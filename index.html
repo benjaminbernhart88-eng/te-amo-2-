@@ -2,22 +2,22 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Te Amo</title>
+<title>Te Amo Infinito</title>
 
 <style>
     body{
+        margin:0;
+        padding:20px;
         background:black;
         color:white;
         font-family:Arial;
-        margin:0;
-        padding:20px;
-        overflow:auto;
+        overflow-y:scroll;
     }
 
     #texto{
-        font-size:20px;
-        line-height:1.5;
-        word-wrap:break-word;
+        font-size:22px;
+        line-height:1.6;
+        word-break:break-word;
     }
 </style>
 </head>
@@ -27,13 +27,27 @@
 <div id="texto"></div>
 
 <script>
-let texto = "Te amo ";
+const texto = document.getElementById("texto");
 
-for(let i = 0; i < 1500000; i++){
-    texto += "mucho ";
+function agregarMuchos(){
+    let bloque = "";
+
+    for(let i = 0; i < 5000; i++){
+        bloque += "Te amo mucho ";
+    }
+
+    texto.innerHTML += bloque;
 }
 
-document.getElementById("texto").innerText = texto;
+// Genera al inicio
+agregarMuchos();
+
+// Cuando bajas, genera más automáticamente
+window.addEventListener("scroll", () => {
+    if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 500){
+        agregarMuchos();
+    }
+});
 </script>
 
 </body>
