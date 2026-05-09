@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Te Amo</title>
+
+<style>
+    body{
+        background:black;
+        color:white;
+        font-family:Arial;
+        margin:0;
+        padding:20px;
+        overflow:auto;
+    }
+
+    #texto{
+        font-size:20px;
+        line-height:1.5;
+        word-wrap:break-word;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="texto"></div>
+
+<script>
+let texto = "Te amo ";
+
+for(let i = 0; i < 1500000; i++){
+    texto += "mucho ";
+}
+
+document.getElementById("texto").innerText = texto;
+</script>
+
+</body>
+</html>
