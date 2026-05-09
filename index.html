@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>1 Billón de Te Amo</title>
+<title>Te Amo Infinito</title>
 
 <style>
     body{
@@ -11,7 +11,7 @@
         font-family:Arial;
         margin:0;
         padding:20px;
-        overflow:auto;
+        overflow-y:scroll;
     }
 
     #texto{
@@ -29,8 +29,33 @@
 <script>
 const texto = document.getElementById("texto");
 
-// ⚠️ Esto probablemente congelará el navegador del cel JAJA
-texto.innerText = "Te amo " + "mucho ".repeat(1000000000);
+let generados = 0;
+
+// Genera 2 millones de "mucho"
+function generarBloque() {
+    texto.innerText += "mucho ".repeat(2000000);
+    generados += 2000000;
+
+    console.log("Generados:", generados);
+}
+
+// Inicio con 2 millones
+texto.innerText = "Te amo ";
+generarBloque();
+
+// Cuando bajas cerca del final,
+// genera otros 2 millones infinitamente
+window.addEventListener("scroll", () => {
+
+    const bajando =
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - 1000;
+
+    if (bajando) {
+        generarBloque();
+    }
+
+});
 </script>
 
 </body>
