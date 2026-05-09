@@ -2,21 +2,21 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Te Amo Infinito</title>
+<title>1 Billón de Te Amo</title>
 
 <style>
     body{
-        margin:0;
-        padding:20px;
         background:black;
         color:white;
         font-family:Arial;
-        overflow-y:scroll;
+        margin:0;
+        padding:20px;
+        overflow:auto;
     }
 
     #texto{
-        font-size:22px;
-        line-height:1.6;
+        font-size:20px;
+        line-height:1.5;
         word-break:break-word;
     }
 </style>
@@ -29,25 +29,8 @@
 <script>
 const texto = document.getElementById("texto");
 
-function agregarMuchos(){
-    let bloque = "";
-
-    for(let i = 0; i < 5000; i++){
-        bloque += "Te amo mucho ";
-    }
-
-    texto.innerHTML += bloque;
-}
-
-// Genera al inicio
-agregarMuchos();
-
-// Cuando bajas, genera más automáticamente
-window.addEventListener("scroll", () => {
-    if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 500){
-        agregarMuchos();
-    }
-});
+// ⚠️ Esto probablemente congelará el navegador del cel JAJA
+texto.innerText = "Te amo " + "mucho ".repeat(1000000000);
 </script>
 
 </body>
